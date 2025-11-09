@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0jbwewwqhfct"]
+
+[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="1_06t4h"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 54.0
+offset_right = 542.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 50
+text = "Malware Game Title"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 496.0
+offset_right = 1151.0
+offset_bottom = 617.0
+alignment = 1
+
+[node name="Start" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "
+Start
+
+"
+
+[node name="Options" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "
+Options
+
+"
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "
+Quit
+
+"
+
+[node name="Title Art" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.41960785)
+z_index = -1
+position = Vector2(576, 322)
+scale = Vector2(8.96875, 5)
+texture = ExtResource("1_06t4h")

@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var dash_animation = preload("res://scenes/trail.tscn")
+@onready var global = $"/root/Global"
 var ghost_timer = 0.0
 
 var is_dashing = false
@@ -30,7 +31,7 @@ var heat = 0.0
 func _physics_process(delta):
 	heat = clamp(heat, 0.0, 100.0)
 	_player_heat() # Manages how the player character behaves as heat changes 
-	print(heat) # Test to see the current heat level
+	#print(heat) # Test to see the current heat level
 	if Input.is_action_pressed("rest"):
 		is_resting = true
 		if heat > 0.0:
@@ -145,5 +146,6 @@ func _create_trail():
 	
 func _player_heat():
 	var heat_normalized = heat / 100.0
+	global.heat = snapped(heat,.01)
 	$AnimatedSprite2D.modulate = Color(1, 1 - heat_normalized, 1 - heat_normalized)
 	

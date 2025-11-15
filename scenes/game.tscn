@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="1_rbmkf"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="2_r1crl"]
-[ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="3_cmfc3"]
-[ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/coin.tscn" id="4_28cek"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="5_x8euu"]
-[ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/slime.tscn" id="6_l0s6b"]
+[ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/objects/platform.tscn" id="3_cmfc3"]
+[ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/objects/coin.tscn" id="4_28cek"]
+[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/objects/killzone.tscn" id="5_x8euu"]
+[ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/objects/slime.tscn" id="6_l0s6b"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
-[ext_resource type="PackedScene" uid="uid://3sepegpurnvt" path="res://scenes/firewall1.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://3sepegpurnvt" path="res://scenes/objects/firewall1.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
 texture = ExtResource("2_r1crl")

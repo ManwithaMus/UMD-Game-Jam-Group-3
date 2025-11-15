@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0jbwewwqhfct"]
 
-[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://icon.svg" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://assets/icon.svg" id="1_06t4h"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

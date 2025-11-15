@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://3sepegpurnvt"]
 
 [ext_resource type="Texture2D" uid="uid://okdeq4uay23d" path="res://assets/sprites/firewall1.png" id="1_b50ip"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="2_bwsyg"]
+[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/objects/killzone.tscn" id="2_bwsyg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtywn"]
 atlas = ExtResource("1_b50ip")

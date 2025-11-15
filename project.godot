@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="MalGameTest"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="uid://djs2honwoxrjv"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
 Music="*res://scenes/music.tscn"
+Global="*res://scripts/global.gd"
 
 [display]
 

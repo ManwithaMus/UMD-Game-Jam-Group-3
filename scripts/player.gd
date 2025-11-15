@@ -108,9 +108,12 @@ func _physics_process(delta):
 		heat -= 0.01
 	
 	# Apply movement
-	if direction and !is_resting:
-		heat += 0.02
-		velocity.x = direction * SPEED
+	if direction:
+		if !is_resting:
+			heat += 0.02
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = direction * (SPEED/2.5)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED) # This slowly stops the player character (friction)
 		

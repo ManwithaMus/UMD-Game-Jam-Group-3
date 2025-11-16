@@ -13,7 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(anim_prev + " " + str(gate_anim.is_playing()))
+	#print(anim_prev + " " + str(gate_anim.is_playing()))
 	if gate_anim.is_playing() == false:
 		if global.heat > threshold && anim_prev != "close":
 			base.play("transition")

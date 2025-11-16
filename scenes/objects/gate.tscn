@@ -48,6 +48,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g733"]
 size = Vector2(64, 128)
 
+[sub_resource type="Animation" id="Animation_4oabi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_5lukw"]
 resource_name = "close"
 length = 0.3
@@ -64,8 +79,8 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 123)]
 }
 
-[sub_resource type="Animation" id="Animation_4oabi"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_qkig8"]
+resource_name = "closed"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,7 +91,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 123)]
 }
 
 [sub_resource type="Animation" id="Animation_1g733"]
@@ -108,21 +123,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_qkig8"]
-resource_name = "closed"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 123)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jhui3"]

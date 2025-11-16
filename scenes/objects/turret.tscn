@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://byufncu6p5ekw"]
+
+[ext_resource type="Texture2D" uid="uid://b76sobxjqh86q" path="res://assets/sprites/turret.png" id="1_8485d"]
+[ext_resource type="Script" uid="uid://cgqpjx5r3bmfl" path="res://scripts/turret.gd" id="1_e3juy"]
+[ext_resource type="Texture2D" uid="uid://c3g3qq2c7xl36" path="res://assets/sprites/turret_barrel.png" id="2_e3juy"]
+[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://assets/icon.svg" id="4_40rjy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40rjy"]
+atlas = ExtResource("1_8485d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtwov"]
+atlas = ExtResource("1_8485d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7pnt"]
+atlas = ExtResource("1_8485d")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phst4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40rjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtwov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7pnt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xxmta"]
+radius = 317.00632
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxu2v"]
+atlas = ExtResource("2_e3juy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rktlx"]
+atlas = ExtResource("2_e3juy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc7ff"]
+atlas = ExtResource("2_e3juy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8evod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxu2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rktlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc7ff")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="turret" type="Node2D"]
+
+[node name="Base" type="AnimatedSprite2D" parent="."]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_phst4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_e3juy")
+
+[node name="turret_range" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xxmta")
+debug_color = Color(0, 0.6, 0.69803923, 0.105882354)
+
+[node name="Barrel" type="AnimatedSprite2D" parent="Area2D"]
+z_index = 3
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_8evod")
+centered = false
+offset = Vector2(-16, -2)
+
+[node name="bullet_point1" type="Marker2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(27, -2)
+
+[node name="bullet_point2" type="Marker2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(27, 2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="test" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(27, -2)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("4_40rjy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="Area2D" method="_on_timer_timeout"]

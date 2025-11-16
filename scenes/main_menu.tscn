@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0jbwewwqhfct"]
+[gd_scene load_steps=3 format=3 uid="uid://b0jbwewwqhfct"]
 
 [ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://assets/icon.svg" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://d13xken1o2qi3" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ekxnf")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -57,3 +59,5 @@ z_index = -1
 position = Vector2(576, 322)
 scale = Vector2(8.96875, 5)
 texture = ExtResource("1_06t4h")
+
+[connection signal="button_down" from="HBoxContainer/Start" to="." method="start_button_pressed"]

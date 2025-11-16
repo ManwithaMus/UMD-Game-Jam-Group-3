@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://begdkog5pml7l"]
+[gd_scene load_steps=12 format=4 uid="uid://begdkog5pml7l"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="1_nmjpi"]
 [ext_resource type="Texture2D" uid="uid://dshfm3ysi38a7" path="res://assets/sprites/world_tileset_test.png" id="2_xdadj"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="3_ra442"]
 [ext_resource type="Script" uid="uid://tmks6skuxrvh" path="res://scripts/heat_display.gd" id="4_fiq81"]
 [ext_resource type="PackedScene" uid="uid://c170m4jgsv825" path="res://scenes/objects/gate.tscn" id="5_l37oo"]
-[ext_resource type="PackedScene" uid="uid://byufncu6p5ekw" path="res://scenes/objects/turret.tscn" id="7_ibugp"]
+[ext_resource type="PackedScene" uid="uid://byufncu6p5ekw" path="res://scenes/Mobs/turret.tscn" id="7_ibugp"]
+[ext_resource type="PackedScene" uid="uid://jveuxs61qnea" path="res://scenes/Mobs/follower.tscn" id="8_8qukl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1y8me"]
 texture = ExtResource("1_nmjpi")
@@ -352,4 +353,10 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(897, 599)
 
 [node name="Turret" parent="." instance=ExtResource("7_ibugp")]
-position = Vector2(170, -209)
+position = Vector2(970, -53)
+
+[node name="turret" parent="." instance=ExtResource("7_ibugp")]
+position = Vector2(578, 528)
+
+[node name="Follower" parent="." instance=ExtResource("8_8qukl")]
+position = Vector2(-92, -268)

@@ -5,15 +5,15 @@ var travelled_distance = 0
 
 @onready var timer = $Timer
 
-func _physics_process(delta):
-	const bullet_speed = 1000
-	const bullet_range = 1200
-	position += Vector2.RIGHT.rotated(rotation) * bullet_speed * delta
-	
-	travelled_distance += bullet_speed * delta
-	
-	if travelled_distance > bullet_range:
-		queue_free()
+#func _physics_process(delta):
+	#const bullet_speed = 1000
+	#const bullet_range = 1200
+	#position += Vector2.RIGHT.rotated(rotation) * bullet_speed * delta
+	#
+	#travelled_distance += bullet_speed * delta
+	#
+	#if travelled_distance > bullet_range:
+		#queue_free()
 
 
 func _on_body_entered(body):

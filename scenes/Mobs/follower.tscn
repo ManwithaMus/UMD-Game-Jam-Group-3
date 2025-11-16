@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://jveuxs61qnea"]
+
+[ext_resource type="Script" uid="uid://bn4kxrqe8m87r" path="res://follower.gd" id="1_spvep"]
+[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://assets/icon.svg" id="2_mxqlp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qrbkd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spvep"]
+radius = 54.147945
+
+[node name="Follower" type="Area2D"]
+script = ExtResource("1_spvep")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_mxqlp")
+
+[node name="Range" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qrbkd")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Vision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_spvep")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

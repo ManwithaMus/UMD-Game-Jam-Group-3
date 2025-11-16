@@ -11,7 +11,7 @@ func _process(_delta):
 
 
 func shoot():
-	const BULLET = preload("res://scenes/objects/bullet.tscn")
+	const BULLET = preload("res://scenes/objects/bullet_2d.tscn")
 	var new_bullet1 = BULLET.instantiate()
 	#var new_bullet2 = BULLET.instantiate()
 	new_bullet1.global_transform = %bullet_point_t.global_transform

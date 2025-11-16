@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/objects/platform.tscn" id="3_cmfc3"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/objects/coin.tscn" id="4_28cek"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/objects/killzone.tscn" id="5_x8euu"]
-[ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/objects/slime.tscn" id="6_l0s6b"]
+[ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/Mobs/slime.tscn" id="6_l0s6b"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
 [ext_resource type="PackedScene" uid="uid://3sepegpurnvt" path="res://scenes/objects/firewall1.tscn" id="10_vtaks"]
 

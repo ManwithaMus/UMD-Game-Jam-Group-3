@@ -41,6 +41,7 @@ func _physics_process(delta):
 			
 	# Handles dashing state
 	if is_dashing:
+		animated_sprite.play("dash")
 		dash_timer -= delta
 		velocity.x = dash_direction * DASH
 		velocity.y = 0 # Cancels vertical motion
@@ -98,9 +99,15 @@ func _physics_process(delta):
 	# Play animations
 	if is_on_floor():
 		if direction == 0:
-			animated_sprite.play("idle")
+			if is_resting:
+				animated_sprite.play("restIdle")
+			else :
+				animated_sprite.play("idle")
 		else:
-			animated_sprite.play("run")
+			if is_resting:
+				animated_sprite.play("crawl")
+			else:
+				animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
 	
@@ -108,9 +115,12 @@ func _physics_process(delta):
 		heat -= 0.01
 	
 	# Apply movement
-	if direction and !is_resting:
-		heat += 0.02
-		velocity.x = direction * SPEED
+	if direction:
+		if !is_resting:
+			heat += 0.02
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = direction * (SPEED/2.5)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED) # This slowly stops the player character (friction)
 		

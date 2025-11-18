@@ -157,7 +157,7 @@ func _create_trail():
 func _player_heat():
 	var heat_normalized = heat / 100.0
 	global.heat = snapped(heat,.01)
-	$AnimatedSprite2D.modulate = Color(1, 1 - heat_normalized, 1 - heat_normalized)
+	$AnimatedSprite2D.modulate = Color(1 + heat_normalized, 1 - heat_normalized, 1 - heat_normalized)
 	
 func player_death():
 	print("dead")

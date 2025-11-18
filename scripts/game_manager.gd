@@ -1,10 +1,14 @@
 extends Node
 
+var time
+
 var level_1 = "res://scenes/levels/level_1.tscn"
 var level_2 = "res://scenes/levels/level_2.tscn"
+var level_3 = "res://scenes/levels/level_3.tscn"
 var score = 0
 
-var levels = [level_1, level_2]
+var levels = [level_1, level_2, level_3]
+
 var current_level = 0
 @onready var score_label = $ScoreLabel
 

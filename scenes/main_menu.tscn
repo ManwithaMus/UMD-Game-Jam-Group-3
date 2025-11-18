@@ -1,7 +1,99 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0jbwewwqhfct"]
+[gd_scene load_steps=16 format=3 uid="uid://b0jbwewwqhfct"]
 
-[ext_resource type="Texture2D" uid="uid://cyfxuch6qa87f" path="res://assets/icon.svg" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://d13xken1o2qi3" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bceq10ci8ns8j" path="res://assets/sprites/noise.png" id="2_ekxnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(0, 0, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(341, 0, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(682, 0, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(0, 256, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(341, 256, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmy8"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(682, 256, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(0, 512, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dd4i"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(341, 512, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(682, 512, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flqon"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(0, 768, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(341, 768, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(682, 768, 341, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6cm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqqt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu84c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ln24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtw2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbmy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk1qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flqon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcqid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ajci")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,7 +111,7 @@ offset_top = 54.0
 offset_right = 542.0
 offset_bottom = 133.0
 theme_override_font_sizes/font_size = 50
-text = "Malware Game Title"
+text = "DefNotMal"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -53,11 +145,13 @@ Quit
 
 "
 
-[node name="Title Art" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.41960785)
-z_index = -1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.13333334)
+z_index = -2
 position = Vector2(576, 322)
-scale = Vector2(8.96875, 5)
-texture = ExtResource("1_06t4h")
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_l6cm7")
+animation = &"new_animation"
+frame_progress = 0.22006747
 
 [connection signal="button_down" from="HBoxContainer/Start" to="." method="start_button_pressed"]

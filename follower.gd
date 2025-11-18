@@ -10,10 +10,11 @@ var current_speed
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if target_visible:
-		position += Vector2.RIGHT.rotated(rotation) * current_speed * delta
+		#position += Vector2.RIGHT.rotated(rotation) * current_speed * delta
 		look_at(target.global_position)
 	else:
-		position += Vector2.RIGHT.rotated(rotation) * current_speed/2 * delta
+		pass
+		#position += Vector2.RIGHT.rotated(rotation) * current_speed/2 * delta
 
 func _on_timer_timeout() -> void:
 	if current_speed == speed1:

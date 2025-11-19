@@ -306,10 +306,12 @@ tile_set = SubResource("TileSet_wvtw0")
 position = Vector2(39, -235)
 collision_layer = 3
 
-[node name="HUD" type="Node2D" parent="Player"]
+[node name="HUD2" type="Node2D" parent="Player"]
+visible = false
 position = Vector2(2, -6)
 
-[node name="HeatDisplay" type="Label" parent="Player/HUD"]
+[node name="HeatDisplay" type="Label" parent="Player/HUD2"]
+visible = false
 offset_left = 11.0
 offset_top = -29.0
 offset_right = 57.0
@@ -317,13 +319,6 @@ offset_bottom = -6.0
 text = "???"
 script = ExtResource("5_qxy0u")
 metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -7)
-zoom = Vector2(4, 4)
-limit_bottom = 332
-limit_smoothed = true
-position_smoothing_enabled = true
 
 [node name="Platforms" type="Node" parent="."]
 

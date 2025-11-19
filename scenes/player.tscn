@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=33 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" uid="uid://dhojb01i6t155" path="res://scripts/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="1_p3dy5"]
+[ext_resource type="Script" uid="uid://tmks6skuxrvh" path="res://scripts/heat_display.gd" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_p3dy5")
@@ -248,3 +249,25 @@ frame_progress = 0.21231702
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_bvcm0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -41)
+zoom = Vector2(3.5, 3.5)
+limit_bottom = 778
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+
+[node name="HUD" type="Node2D" parent="."]
+position = Vector2(2, -6)
+
+[node name="HeatDisplay" type="Label" parent="HUD"]
+visible = false
+offset_left = 11.0
+offset_top = -29.0
+offset_right = 57.0
+offset_bottom = -6.0
+text = "???"
+script = ExtResource("3_qhqgy")
+metadata/_edit_use_anchors_ = true

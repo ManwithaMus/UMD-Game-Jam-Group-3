@@ -152,6 +152,7 @@ position = Vector2(576, 322)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_l6cm7")
 animation = &"new_animation"
-frame_progress = 0.22006747
+autoplay = "new_animation"
+frame_progress = 0.55365247
 
 [connection signal="button_down" from="HBoxContainer/Start" to="." method="start_button_pressed"]

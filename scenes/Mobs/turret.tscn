@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://byufncu6p5ekw"]
+[gd_scene load_steps=14 format=3 uid="uid://byufncu6p5ekw"]
 
 [ext_resource type="Texture2D" uid="uid://b76sobxjqh86q" path="res://assets/sprites/turret.png" id="1_8485d"]
 [ext_resource type="Script" uid="uid://cgqpjx5r3bmfl" path="res://scripts/turret.gd" id="1_e3juy"]
 [ext_resource type="Texture2D" uid="uid://c3g3qq2c7xl36" path="res://assets/sprites/turret_barrel.png" id="2_e3juy"]
+[ext_resource type="Script" uid="uid://bq7qwv0ny8wbl" path="res://scenes/Mobs/turret_raycast.gd" id="4_0wyd5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40rjy"]
 atlas = ExtResource("1_8485d")
@@ -95,6 +96,11 @@ position = Vector2(27, -2)
 [node name="bullet_point2" type="Marker2D" parent="Area2D"]
 unique_name_in_owner = true
 position = Vector2(27, 2)
+
+[node name="RayCast2D" type="RayCast2D" parent="Area2D"]
+rotation = -1.5707964
+target_position = Vector2(-5.726192e-06, 131)
+script = ExtResource("4_0wyd5")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.444

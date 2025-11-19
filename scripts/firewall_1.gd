@@ -5,7 +5,7 @@ extends Node2D
 @export var interval_len = 1 #for timer
 
 @onready var b1 = $beam
-@onready var b2 = $beam/beam2
+@onready var b2 = $base2/beam2
 @onready var kz = $beam/Killzone/CollisionShape2D
 @onready var timer = $Timer
 
@@ -49,7 +49,9 @@ func _on_timer_timeout() -> void:
 		
 
 
-func _on_beam_animation_finished(anim_name: String) -> void:
+func _on_beam_animation_finished() -> void:
+	var anim_name = b1.animation
+	
 	if anim_name == "start" && state == false:
 		on()
 	elif anim_name != "start" && state == true && firewall_type == 2:

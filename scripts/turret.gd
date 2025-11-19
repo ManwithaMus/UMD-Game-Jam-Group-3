@@ -3,17 +3,18 @@ extends Area2D
 #@onready var test = $"../test"
 
 
-
-
+@onready var raycast = $RayCast2D
 var target_visible 
 
 func _process(_delta):
 	var targets = get_overlapping_bodies()
 	if targets.size() > 0:
 		var targets_enemy = targets.front()
-		look_at(targets_enemy.global_position)
-		target_visible = true
+		look_at(targets_enemy.global_position)		
+		if raycast.get_collider() is CharacterBody2D: 
+			target_visible = true
 	else:
+		rotation = lerp_angle(rotation, 0, .001)
 		target_visible = false
 #look_at(get_global_mouse_position())
 	

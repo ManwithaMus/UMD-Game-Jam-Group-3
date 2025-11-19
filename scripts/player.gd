@@ -17,6 +17,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var dash_animation = preload("res://scenes/trail.tscn")
 @onready var global = $"/root/Global"
+@onready var cam = $Camera2D
+
+var default_cam_pos
 var ghost_timer = 0.0
 
 var is_dashing = false
@@ -24,9 +27,11 @@ var dash_timer = 0.0
 var dash_direction = 0
 var dash_cooldown_timer = 0.0
 var is_resting = false
-
+var face_dir = 1
 # Keeps track of the heat value from the players actions (Move = +1, Jump = +2, Dash = +3)
 var heat = 0.0
+func _ready() -> void:
+	default_cam_pos = cam.position
 
 func _physics_process(delta):
 	heat = clamp(heat, 0.0, 100.0)
@@ -36,6 +41,7 @@ func _physics_process(delta):
 		is_resting = true
 		if heat > 0.0:
 			heat -= 0.1
+		
 	else:
 		is_resting = false
 			
@@ -72,8 +78,10 @@ func _physics_process(delta):
 	# Flip the Sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
+		face_dir = 1
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		face_dir = -1
 		
 	# Double tap detection
 	var time = Time.get_ticks_msec() / 1000.0
@@ -101,15 +109,22 @@ func _physics_process(delta):
 		if direction == 0:
 			if is_resting:
 				animated_sprite.play("restIdle")
+				cam.position = lerp(cam.position, default_cam_pos+Vector2(face_dir*10,15), .1)
 			else :
 				animated_sprite.play("idle")
+				cam.position = lerp(cam.position, default_cam_pos+Vector2(face_dir*10,0), .7)
+
 		else:
 			if is_resting:
 				animated_sprite.play("crawl")
+				cam.position = lerp(cam.position, default_cam_pos+Vector2(face_dir*10,15), .1)
 			else:
 				animated_sprite.play("run")
+				cam.position = lerp(cam.position, default_cam_pos+Vector2(face_dir*10,0), .5)
+				
 	else:
 		animated_sprite.play("jump")
+		cam.position = lerp(cam.position, default_cam_pos, .99)
 	
 	if heat > 0.0 && velocity.x == 0 && velocity.y == 0:
 		heat -= 0.01

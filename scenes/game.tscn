@@ -272,7 +272,7 @@ tile_set = SubResource("TileSet_wvtw0")
 [node name="Player" parent="." instance=ExtResource("1_rbmkf")]
 position = Vector2(39, -235)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(0, -7)
 zoom = Vector2(4, 4)
 limit_bottom = 120

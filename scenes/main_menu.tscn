@@ -155,4 +155,68 @@ animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.55365247
 
+[node name="OptionsPopup" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -186.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="OptionsPopup"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPopup"]
+layout_mode = 2
+alignment = 1
+
+[node name="Vol" type="Label" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+max_value = 30.0
+step = 0.1
+value = 15.0
+
+[node name="Res" type="Label" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolution" type="OptionButton" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+selected = 2
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280 x 720"
+popup/item_1/id = 1
+popup/item_2/text = "1152 x 648"
+popup/item_2/id = 3
+popup/item_3/text = "800x600"
+popup/item_3/id = 2
+
+[node name="FS" type="Label" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+text = "FullScreen"
+
+[node name="FullScreen" type="CheckButton" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Close" type="Button" parent="OptionsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
 [connection signal="button_down" from="HBoxContainer/Start" to="." method="start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="OptionsPopup/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="item_selected" from="OptionsPopup/VBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="OptionsPopup/VBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="pressed" from="OptionsPopup/VBoxContainer/Close" to="." method="_on_close_pressed"]

@@ -279,6 +279,10 @@ limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="Panel" type="Panel" parent="Player/Camera2D2"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Killzone" parent="." instance=ExtResource("5_x8euu")]
 position = Vector2(74, 141)
 

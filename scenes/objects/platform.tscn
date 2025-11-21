@@ -1,17 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgv5v2fxqlswe"]
+[gd_scene load_steps=8 format=3 uid="uid://bgv5v2fxqlswe"]
 
 [ext_resource type="Texture2D" uid="uid://cxuqjimd7csiq" path="res://assets/sprites/platforms.png" id="1_7q5sl"]
+[ext_resource type="Script" uid="uid://d18qf7l276ck8" path="res://scripts/platform.gd" id="1_8dp8w"]
+[ext_resource type="Script" uid="uid://r6i180k5tis5" path="res://scripts/trap_area.gd" id="3_jb4ro"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dp8w"]
+atlas = ExtResource("1_7q5sl")
+region = Rect2(16, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jb4ro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dp8w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13ihi"]
-size = Vector2(32, 8)
+size = Vector2(32, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lacew"]
+size = Vector2(14, 13)
 
 [node name="Platform" type="AnimatableBody2D"]
+script = ExtResource("1_8dp8w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7q5sl")
-region_enabled = true
-region_rect = Rect2(16, 0, 32, 9)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jb4ro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_13ihi")
 one_way_collision = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="TrapArea" type="Area2D" parent="."]
+position = Vector2(-49, -168)
+script = ExtResource("3_jb4ro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapArea"]
+position = Vector2(49, 153.5)
+shape = SubResource("RectangleShape2D_lacew")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="TrapArea" to="." method="_on_trap_area_body_entered"]

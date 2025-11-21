@@ -8,6 +8,7 @@ const DASH_DURATION = 0.15
 const DOUBLE_TAP_TIME = 0.2
 const DASH_COOLDOWN = 1.0 # 1 Second cooldown
 
+
 var last_tap_time = { "left" : 0.0, "right": 0.0 }
 
 
@@ -18,7 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var dash_animation = preload("res://scenes/trail.tscn")
 @onready var global = $"/root/Global"
 @onready var cam = $Camera2D
-
+@onready var timer = $SlowMo
 var default_cam_pos
 var ghost_timer = 0.0
 
@@ -29,7 +30,7 @@ var dash_cooldown_timer = 0.0
 var is_resting = false
 var face_dir = 1
 # Keeps track of the heat value from the players actions (Move = +1, Jump = +2, Dash = +3)
-var heat = 0.0
+@export var heat = 0.0
 func _ready() -> void:
 	default_cam_pos = cam.position
 
@@ -175,5 +176,13 @@ func _player_heat():
 	$AnimatedSprite2D.modulate = Color(1 + heat_normalized, 1 - heat_normalized, 1 - heat_normalized)
 	
 func player_death():
-	print("dead")
+	timer.start()
+
+	
+
+
+func _on_slow_mo_timeout() -> void:
+	Engine.time_scale = 1.0
+	print("death")
+	get_tree().reload_current_scene()
 	

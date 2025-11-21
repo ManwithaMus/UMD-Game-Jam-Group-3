@@ -1,7 +1,8 @@
 extends Node
 
 var heat = 0.0
-var time
+var current_time
+var times = {}
 
 var level_1 = "res://scenes/levels/level_1.tscn"
 var level_2 = "res://scenes/levels/level_2.tscn"
@@ -11,7 +12,7 @@ var score = 0
 var levels = [level_1, level_2, level_3]
 var current_level 
 
-@onready var score_label = $ScoreLabel
+#@onready var score_label = $ScoreLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,8 +25,6 @@ func _process(delta: float) -> void:
 	
 func level_end(): 
 	current_level = levels.find(get_tree().current_scene.scene_file_path)
-	print("scene: " + str(get_tree().current_scene.scene_file_path))
-	print("current: " + str(current_level))
 	
 	if current_level+1 != len(levels):
 		print(current_level)

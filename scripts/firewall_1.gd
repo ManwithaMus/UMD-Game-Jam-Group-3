@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 				off()
 			
 func on():
-	print("on?")
+	#print("on?")
 	kz.disabled = false
 	b1.visible = true
 	b2.visible = true

@@ -1,8 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://c170m4jgsv825"]
+[gd_scene load_steps=19 format=3 uid="uid://c170m4jgsv825"]
 
 [ext_resource type="Script" uid="uid://phhdlcv3ard4" path="res://scripts/gate.gd" id="1_sb1ok"]
 [ext_resource type="Texture2D" uid="uid://tho5qds2r6c" path="res://assets/sprites/alarm_block.png" id="2_qkig8"]
 [ext_resource type="Texture2D" uid="uid://dah4uio5clpda" path="res://assets/sprites/gate.png" id="3_tk8t5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkig8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkig8"]
+bg_color = Color(0.4402105, 0.85471904, 0.99999994, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tk8t5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb1ok"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 0.105882354)
+border_width_right = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikl61"]
 atlas = ExtResource("2_qkig8")
@@ -139,6 +151,47 @@ _data = {
 [node name="gate" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_sb1ok")
+threshold = 65
+
+[node name="HeatBar" type="ProgressBar" parent="."]
+z_index = 3
+layout_direction = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -70.11517
+offset_right = 24.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_qkig8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qkig8")
+value = 76.01
+show_percentage = false
+
+[node name="Threshold" type="ProgressBar" parent="HeatBar"]
+z_index = 1
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -5.0575867
+offset_right = 24.0
+offset_bottom = 5.0575867
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_tk8t5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sb1ok")
+value = 60.0
+rounded = true
+show_percentage = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, -28)
@@ -151,6 +204,12 @@ animation = &"on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_sb1ok")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="StaticBody2D"]
+offset_left = -60.0
+offset_top = -11.999997
+offset_right = -20.0
+offset_bottom = 28.000004
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 

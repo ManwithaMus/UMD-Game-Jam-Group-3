@@ -3,17 +3,20 @@ extends Node2D
 @onready var global = $"/root/Global"
 @onready var gate_anim = $AnimatableBody2D/AnimationPlayer
 @onready var base = $StaticBody2D/Base
+@onready var heat_bar = $HeatBar
+@onready var thresh_bar = $HeatBar/Threshold
 
 var anim_prev
 @export var threshold = 30  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	anim_prev = "open" # Replace with function body.
-
+	thresh_bar.value = threshold
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print(anim_prev + " " + str(gate_anim.is_playing()))
+	heat_bar.value = global.heat
 	if gate_anim.is_playing() == false:
 		if global.heat > threshold && anim_prev != "close":
 			base.play("transition")

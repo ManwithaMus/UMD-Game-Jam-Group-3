@@ -3,10 +3,9 @@ extends Area2D
 @onready var timer = $Timer
 var player
 @onready var sprite = $Sprite
+const SPEED = 800
 
 func _physics_process(delta):
-	const SPEED = 1000
-
 	position += Vector2.RIGHT.rotated(rotation) * SPEED * delta
 	
 	#if travelled_distance > RANGE:
@@ -21,7 +20,8 @@ func _on_body_entered(body):
 		body.get_node("CollisionShape2D").queue_free()
 		
 		body.player_death()
-	sprite.queue_free()
+	if is_instance_valid(sprite):
+		sprite.queue_free()
 		
 	
 

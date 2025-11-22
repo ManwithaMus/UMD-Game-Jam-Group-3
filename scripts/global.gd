@@ -26,9 +26,12 @@ func _process(delta: float) -> void:
 func get_level_time(level = current_level):
 	return levels[level]
 	
-func level_end(): 
+func level_end():	 
 	current_level = levels.find(get_tree().current_scene.scene_file_path)
+	get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 	
+	
+func level_next():
 	if current_level+1 != len(levels):
 		print(current_level)
 		get_tree().change_scene_to_file(levels[current_level+1])

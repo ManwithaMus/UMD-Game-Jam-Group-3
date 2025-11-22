@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 func level_end(): 
 	print(current_level, len(levels))
 	global.times[current_level] = level_time
+	
 	if current_level+1 != len(levels):
 		print(current_level)
 		get_tree().change_scene_to_file(levels[current_level+1])

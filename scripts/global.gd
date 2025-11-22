@@ -23,6 +23,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func get_level_time(level = current_level):
+	return levels[level]
+	
 func level_end(): 
 	current_level = levels.find(get_tree().current_scene.scene_file_path)
 	

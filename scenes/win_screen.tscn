@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd6e5ghj3v3an"]
+[gd_scene load_steps=2 format=3 uid="uid://b5b2y8rmfeycw"]
 
 [ext_resource type="Script" uid="uid://dxmmrt0nml46v" path="res://scenes/label_2.gd" id="1_wv5lq"]
 
@@ -33,13 +33,13 @@ theme_override_constants/separation = 75
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "You Winner!"
+text = "Successful Breach"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TimeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Time: time"
+text = "Time"
 horizontal_alignment = 1
 script = ExtResource("1_wv5lq")
 

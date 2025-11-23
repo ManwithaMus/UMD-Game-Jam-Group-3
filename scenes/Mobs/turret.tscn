@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://byufncu6p5ekw"]
+[gd_scene load_steps=19 format=3 uid="uid://byufncu6p5ekw"]
 
 [ext_resource type="Texture2D" uid="uid://b76sobxjqh86q" path="res://assets/sprites/turret.png" id="1_8485d"]
 [ext_resource type="Script" uid="uid://cgqpjx5r3bmfl" path="res://scripts/turret.gd" id="1_e3juy"]
+[ext_resource type="Script" uid="uid://dit45ehp7507s" path="res://scenes/Mobs/turret_base.gd" id="1_qbpx8"]
 [ext_resource type="Texture2D" uid="uid://c3g3qq2c7xl36" path="res://assets/sprites/turret_barrel.png" id="2_e3juy"]
 [ext_resource type="Script" uid="uid://bq7qwv0ny8wbl" path="res://scenes/Mobs/turret_raycast.gd" id="4_0wyd5"]
 
@@ -36,6 +37,17 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxmta"]
 radius = 317.00632
+
+[sub_resource type="Gradient" id="Gradient_0wyd5"]
+offsets = PackedFloat32Array(0.388, 0.648, 0.68, 0.688)
+colors = PackedColorArray(0.9411765, 0.9411765, 0.9411765, 0, 0.16470589, 0.16470589, 0.7058824, 0.20392157, 0.015686275, 0.015686275, 0.65882355, 0.50980395, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qbpx8"]
+gradient = SubResource("Gradient_0wyd5")
+width = 634
+height = 634
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxu2v"]
 atlas = ExtResource("2_e3juy")
@@ -86,6 +98,7 @@ animations = [{
 }]
 
 [node name="turret" type="Node2D"]
+script = ExtResource("1_qbpx8")
 
 [node name="Base" type="AnimatedSprite2D" parent="."]
 rotation = -1.5707964
@@ -100,6 +113,10 @@ script = ExtResource("1_e3juy")
 scale = Vector2(0.425, 0.425)
 shape = SubResource("CircleShape2D_xxmta")
 debug_color = Color(0, 0.6, 0.69803923, 0.105882354)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/turret_range"]
+self_modulate = Color(1, 1, 1, 0.11764706)
+texture = SubResource("GradientTexture2D_qbpx8")
 
 [node name="Barrel" type="AnimatedSprite2D" parent="Area2D"]
 z_index = 3

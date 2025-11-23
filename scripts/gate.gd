@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 			gate_anim.play("close")
 			anim_prev = "close"
 		elif global.heat < threshold && anim_prev != "open":
-			print("opening")
+			#print("opening")
 			base.play("transition")
 			base.play("off")
 			gate_anim.play("open")

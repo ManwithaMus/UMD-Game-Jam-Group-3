@@ -1,11 +1,12 @@
 extends Control
 
-
+@onready var bgm = $"/root/Music/AudioStreamPlayer"
+@onready var timer = $Timer
+var playback
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$OptionsPopup.visible = false
 	AudioServer.set_bus_volume_db(0,linear_to_db(15))
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,7 +15,11 @@ func _process(delta: float) -> void:
 
 
 func start_button_pressed() -> void:
-		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+	playback = bgm.get_stream_playback()
+	playback.switch_to_clip_by_name(&"No Going Back")
+	timer.start()
+
+	
 
 
 func _on_quit_pressed() -> void:
@@ -50,3 +55,8 @@ func _on_full_screen_toggled(toggled_on: bool) -> void:
 
 func _on_close_pressed() -> void:
 	$OptionsPopup.visible = false
+
+
+func _on_timer_timeout() -> void:
+	playback.switch_to_clip_by_name(&"No Going Back")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")

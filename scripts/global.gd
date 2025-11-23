@@ -1,22 +1,31 @@
 extends Node
 
+
+
 var heat = 0.0
 var current_time
 var times = {}
 
+@onready var bgm = "res://scenes/music.tscn"
+
 var level_1 = "res://scenes/levels/level_1.tscn"
 var level_2 = "res://scenes/levels/level_2.tscn"
 var level_3 = "res://scenes/levels/level_3.tscn"
+var end = "res://scenes/end_screen.tscn"
 var score = 0
 
-var levels = [level_1, level_2, level_3]
-var current_level 
+var levels = [level_1, level_2, level_3, end]
+var bgm_paths = {-1: "res://assets/music/pothos2.mp3", 1: "res://assets/music/no going back(1).mp3"}
+var current_level = -1
 
 #@onready var score_label = $ScoreLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+	
+
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

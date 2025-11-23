@@ -45,7 +45,7 @@ func on():
 	b2.play("on2")
 	
 func off():
-	print("off")
+	#print("off")
 	kz.disabled = true
 	b1.visible = false
 	b2.visible = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5b2y8rmfeycw"]
 
-[ext_resource type="Script" uid="uid://cecsp2x0nb7es" path="res://scenes/win_screen.gd" id="1_erk2x"]
-[ext_resource type="Script" uid="uid://dxmmrt0nml46v" path="res://scenes/label_2.gd" id="1_wv5lq"]
+[ext_resource type="Script" uid="uid://cecsp2x0nb7es" path="res://scripts/win_screen.gd" id="1_erk2x"]
+[ext_resource type="Script" uid="uid://dxmmrt0nml46v" path="res://scripts/label_2.gd" id="1_wv5lq"]
 
 [node name="winScreen" type="CanvasLayer"]
 script = ExtResource("1_erk2x")

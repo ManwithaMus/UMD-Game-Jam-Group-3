@@ -384,13 +384,12 @@ collision_enabled = false
 
 [node name="Player" parent="." instance=ExtResource("3_ra442")]
 z_index = 3
-position = Vector2(46, -212)
+position = Vector2(171, -45)
 collision_layer = 3
-heat = 80.0
+heat = 30.0
 
 [node name="HUD2" type="Node2D" parent="Player"]
-visible = false
-position = Vector2(-137, -234)
+position = Vector2(2, -6)
 
 [node name="HeatDisplay" type="Label" parent="Player/HUD2"]
 visible = false
@@ -489,6 +488,3 @@ position = Vector2(1411, 580)
 
 [node name="Folder" parent="." instance=ExtResource("12_brxtv")]
 position = Vector2(233, -41)
-
-[node name="Folder2" parent="." instance=ExtResource("12_brxtv")]
-position = Vector2(191, 610)

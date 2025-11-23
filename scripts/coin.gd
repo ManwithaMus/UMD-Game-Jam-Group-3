@@ -5,4 +5,6 @@ extends Area2D
 
 func _on_body_entered(body):
 	#game_manager.add_point()
-	animation_player.play("pickup")
+	if "heat" in body:
+		body.heat /= 2
+		animation_player.play("pickup")

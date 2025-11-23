@@ -39,7 +39,7 @@ func _ready() -> void:
 				trap_area.disabled = false
 				state = true
 				collision.disabled = not state
-				print("starting ",collision.disabled)
+				#print("starting ",collision.disabled)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta: float) -> void:
@@ -77,5 +77,5 @@ func _on_timer_2_timeout() -> void:
 func _on_trap_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player_death") && global.heat > 80:
 		state = false
-		print("now: ", collision.disabled)
+		#print("now: ", collision.disabled)
 		sprite.self_modulate = Color(1,1,1, 0)

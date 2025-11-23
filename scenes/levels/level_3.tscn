@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b2ppcwdpd4nc3"]
+[gd_scene load_steps=25 format=4 uid="uid://b2ppcwdpd4nc3"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="1_fkk1g"]
 [ext_resource type="Texture2D" uid="uid://dshfm3ysi38a7" path="res://assets/sprites/world_tileset_test.png" id="2_ugcn1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c170m4jgsv825" path="res://scenes/objects/gate.tscn" id="6_qi5uv"]
 [ext_resource type="PackedScene" uid="uid://byufncu6p5ekw" path="res://scenes/Mobs/turret.tscn" id="7_f6egh"]
 [ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/objects/coin.tscn" id="7_qi5uv"]
+[ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/Mobs/slime.tscn" id="7_t4txi"]
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://scripts/game_manager.gd" id="8_pimnq"]
 [ext_resource type="PackedScene" uid="uid://c0mekoetwpa0u" path="res://scenes/objects/trap_gate.tscn" id="10_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://cktw77xy5db5g" path="res://scenes/objects/fire_circle.tscn" id="13_f6egh"]
@@ -326,23 +327,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_n6eey"]
-resource_name = "up_down"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8333333, 1.1833334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -83)]
-}
-
 [sub_resource type="Animation" id="Animation_apo5x"]
 resource_name = "up_ded"
 length = 3.0
@@ -358,6 +342,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -129)]
+}
+
+[sub_resource type="Animation" id="Animation_n6eey"]
+resource_name = "up_down"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 1.1833334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -83)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6egh"]
@@ -447,12 +448,17 @@ rotation = 1.5707964
 [node name="Coin" parent="TileMap" instance=ExtResource("7_qi5uv")]
 position = Vector2(116, 277)
 
+[node name="Slime" parent="TileMap" instance=ExtResource("7_t4txi")]
+modulate = Color(0, 0.9377614, 0.93776107, 1)
+position = Vector2(282, 287)
+
 [node name="Player" parent="." instance=ExtResource("4_2bnyt")]
-position = Vector2(41, -218)
+position = Vector2(1415, 407)
 collision_layer = 3
 heat = 90.0
 
 [node name="HUD2" type="Node2D" parent="Player"]
+visible = false
 position = Vector2(2, -6)
 
 [node name="HeatDisplay" type="Label" parent="Player/HUD2"]

@@ -2,6 +2,7 @@ extends Control
 
 @onready var bgm = $"/root/Music/AudioStreamPlayer"
 @onready var timer = $Timer
+
 var playback
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,9 @@ func _process(delta: float) -> void:
 func start_button_pressed() -> void:
 	playback = bgm.get_stream_playback()
 	playback.switch_to_clip_by_name(&"No Going Back")
+	const INTRO = preload("res://scenes/intro.tscn")
+	var intro = INTRO.instantiate()
+	add_child(intro)
 	timer.start()
 
 	
@@ -27,7 +31,10 @@ func _on_quit_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	$OptionsPopup.visible = true
+	if $OptionsPopup.visible == false:
+		$OptionsPopup.visible = true
+	else:
+		$OptionsPopup.visible = false
 
 
 func _on_volume_value_changed(value: float) -> void:

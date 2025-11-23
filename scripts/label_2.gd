@@ -9,6 +9,6 @@ func _ready() -> void:
 		for key in global.times.keys():
 			total_time += global.times[key]
 		print(global.times)
-		self.text = "Total Time\n" + str(int(total_time)/60) + ":" + str(int(total_time)%60)
+		self.text = "Time Elapsed: " + str(snapped(total_time, .01)) + " s"
 	else:
-		self.text = "Time : " + str(int(global.current_time)/60) + ":" + str(int(global.current_time)%60)
+		self.text = "Time : " + str(snapped(global.current_time, .01)) + " s"

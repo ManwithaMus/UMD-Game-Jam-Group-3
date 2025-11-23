@@ -12,9 +12,9 @@ var current_level
 var level_time
 #@onready var score_label = $ScoreLabel
 func _ready() -> void:
-	
 	level_time = 0
 	global.current_time = level_time
+	
 func _process(delta: float) -> void:
 	level_time += delta
 	global.current_time = level_time

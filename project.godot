@@ -24,6 +24,10 @@ Global="*res://scripts/global.gd"
 
 window/vsync/vsync_mode=0
 
+[gui]
+
+theme/custom_font="uid://dksvcakqqnc2s"
+
 [input]
 
 jump={

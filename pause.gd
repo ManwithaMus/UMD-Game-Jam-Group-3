@@ -21,8 +21,10 @@ func _on_resume_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
-
+	if $Directions.visible == false:
+		$Directions.visible = true
+	else:
+		$Directions.visible = false
 
 func _on_quit_pressed() -> void:
 	$Confirm.visible = true

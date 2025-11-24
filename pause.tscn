@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://vmcmcveumenc"]
+[gd_scene load_steps=6 format=3 uid="uid://lpyvatiiwks6"]
 
 [ext_resource type="Script" uid="uid://cml8xmgpbi4eo" path="res://pause.gd" id="1_aq7p1"]
 [ext_resource type="Texture2D" uid="uid://hxvjxcgyoj5j" path="res://assets/sprites/winScreen.png" id="2_6eyaj"]
+[ext_resource type="PackedScene" uid="uid://07e3ogt3cjis" path="res://scenes/player_control.tscn" id="2_8u653"]
+
+[sub_resource type="Gradient" id="Gradient_aq7p1"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6eyaj"]
+gradient = SubResource("Gradient_aq7p1")
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -34,7 +41,6 @@ layout_mode = 2
 text = "Controls"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 text = "Options"
 
@@ -46,7 +52,7 @@ text = "Quit"
 z_index = -1
 position = Vector2(102, 92.24999)
 scale = Vector2(1.7758621, 1.7285713)
-texture = ExtResource("2_6eyaj")
+texture = SubResource("GradientTexture2D_6eyaj")
 region_enabled = true
 region_rect = Rect2(364, 164.5, 116, 105.5)
 
@@ -91,6 +97,10 @@ text = "Yes"
 [node name="NMM" type="Button" parent="Confirm/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "No"
+
+[node name="Directions" parent="." instance=ExtResource("2_8u653")]
+position = Vector2(366, 91)
+scale = Vector2(0.4, 0.4)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]

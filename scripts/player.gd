@@ -36,6 +36,8 @@ func _ready() -> void:
 	default_cam_pos = cam.position
 
 func _physics_process(delta):
+	if $Pause.paused:
+		return
 	heat = clamp(heat, 0.0, 100.0)
 	_player_heat() # Manages how the player character behaves as heat changes 
 	#print(heat) # Test to see the current heat level

@@ -19,6 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var dash_animation = preload("res://scenes/trail.tscn")
 @onready var global = $"/root/Global"
 @onready var cam = $Camera2D
+@onready var hud = $Camera2D/HUD
 @onready var timer = $SlowMo
 var default_cam_pos
 var ghost_timer = 0.0
@@ -140,6 +141,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED) # This slowly stops the player character (friction)
 		
+	hud.global_transform = cam.global_transform
 	move_and_slide()
 	
 func _start_dash(direction):

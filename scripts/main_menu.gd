@@ -2,8 +2,9 @@ extends Control
 
 @onready var bgm = $"/root/Music/AudioStreamPlayer"
 @onready var timer = $Timer
-
+@onready var playercontrols = $Directions
 var playback
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$OptionsPopup.visible = false
@@ -33,8 +34,11 @@ func _on_quit_pressed() -> void:
 func _on_options_pressed() -> void:
 	if $OptionsPopup.visible == false:
 		$OptionsPopup.visible = true
+		playercontrols.visible = false
+
 	else:
 		$OptionsPopup.visible = false
+		playercontrols.visible = true
 
 
 func _on_volume_value_changed(value: float) -> void:

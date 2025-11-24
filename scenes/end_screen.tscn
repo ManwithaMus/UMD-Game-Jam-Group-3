@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b76fpk8mv4k6o"]
+[gd_scene load_steps=3 format=3 uid="uid://b76fpk8mv4k6o"]
 
+[ext_resource type="Script" uid="uid://c01hwxegay5mh" path="res://scenes/end_screen.gd" id="1_6e1uj"]
 [ext_resource type="Script" uid="uid://dxmmrt0nml46v" path="res://scripts/label_2.gd" id="1_my301"]
 
 [node name="EndScreen" type="Node2D"]
+script = ExtResource("1_6e1uj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -20,10 +22,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
@@ -49,4 +47,12 @@ text = "Time"
 horizontal_alignment = 1
 script = ExtResource("1_my301")
 
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Return"
+
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

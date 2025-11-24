@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0jbwewwqhfct"]
+[gd_scene load_steps=18 format=3 uid="uid://b0jbwewwqhfct"]
 
 [ext_resource type="Script" uid="uid://d13xken1o2qi3" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://n8d2oonbi6va" path="res://assets/fonts/Nihonium113.ttf" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://bceq10ci8ns8j" path="res://assets/sprites/noise.png" id="2_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://07e3ogt3cjis" path="res://scenes/player_control.tscn" id="4_wu84c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
 atlas = ExtResource("2_ekxnf")
@@ -223,6 +224,9 @@ text = "Close"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
+
+[node name="Directions" parent="." instance=ExtResource("4_wu84c")]
+position = Vector2(595, 304)
 
 [connection signal="button_down" from="HBoxContainer/Start" to="." method="start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]

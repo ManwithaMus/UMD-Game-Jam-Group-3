@@ -18,6 +18,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	level_time += delta
 	global.current_time = level_time
+	
+	
 #func add_point():
 	#score += 1
 	#score_label.text = "You collected " + str(score) + " coins."

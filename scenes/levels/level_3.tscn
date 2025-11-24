@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b2ppcwdpd4nc3"]
+[gd_scene load_steps=26 format=4 uid="uid://b2ppcwdpd4nc3"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="1_fkk1g"]
 [ext_resource type="Texture2D" uid="uid://dshfm3ysi38a7" path="res://assets/sprites/world_tileset_test.png" id="2_ugcn1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://scripts/game_manager.gd" id="8_pimnq"]
 [ext_resource type="PackedScene" uid="uid://c0mekoetwpa0u" path="res://scenes/objects/trap_gate.tscn" id="10_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://cktw77xy5db5g" path="res://scenes/objects/fire_circle.tscn" id="13_f6egh"]
+[ext_resource type="PackedScene" uid="uid://cjl8hbn75io4c" path="res://scenes/objects/folder.tscn" id="15_apo5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1y8me"]
 texture = ExtResource("1_fkk1g")
@@ -453,7 +454,7 @@ modulate = Color(0, 0.9377614, 0.93776107, 1)
 position = Vector2(282, 287)
 
 [node name="Player" parent="." instance=ExtResource("4_2bnyt")]
-position = Vector2(1415, 407)
+position = Vector2(58, -171)
 collision_layer = 3
 heat = 90.0
 
@@ -484,7 +485,7 @@ unique_name_in_owner = true
 script = ExtResource("8_pimnq")
 
 [node name="TrapGate" parent="." instance=ExtResource("10_2bnyt")]
-position = Vector2(264, -72)
+position = Vector2(263, -75)
 
 [node name="firewalls2" type="Node2D" parent="."]
 position = Vector2(0, -188)
@@ -510,7 +511,7 @@ position = Vector2(1041, -66)
 firewall_type = 1
 
 [node name="turret" parent="firewalls2" instance=ExtResource("7_f6egh")]
-position = Vector2(817, 273)
+position = Vector2(817, 260)
 rotation = 3.1415927
 
 [node name="turret2" parent="firewalls2" instance=ExtResource("7_f6egh")]
@@ -632,3 +633,6 @@ firewall_type = 1
 
 [node name="FireCircle2" parent="." instance=ExtResource("13_f6egh")]
 position = Vector2(894, 124)
+
+[node name="Folder" parent="." instance=ExtResource("15_apo5x")]
+position = Vector2(922, 517)

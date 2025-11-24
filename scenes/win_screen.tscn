@@ -39,7 +39,7 @@ script = ExtResource("1_wv5lq")
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Next"
+text = "Continue"
 
 [node name="WinScreen" type="Sprite2D" parent="MarginContainer"]
 z_index = -1

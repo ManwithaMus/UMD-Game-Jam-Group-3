@@ -4,7 +4,7 @@ extends Node
 
 var heat = 0.0
 var current_time
-var times = {}
+var times = []
 
 @onready var bgm = "res://scenes/music.tscn"
 
@@ -22,18 +22,27 @@ var current_level = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_time = 0 
 	pass
 	
 
 	
+func add_time():
+	print(current_time)
+	times.append(current_time)
 
+func get_total_time():
+	var total_time = 0
+	for key in times:
+		total_time += key
+	return total_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
 	
-func get_level_time(level = current_level):
-	return levels[level]
+#func get_level_time(level = current_level):
+	#return levels[level]
 	
 func level_end():	 
 	current_level = levels.find(get_tree().current_scene.scene_file_path)

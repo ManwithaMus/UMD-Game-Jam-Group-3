@@ -6,9 +6,9 @@ extends Node2D
 @export var interval2_len = 1 #for timer2
 
 
-@onready var b1 = $beam
-@onready var b2 = $base2/beam2
-@onready var kz = $beam/Killzone/CollisionShape2D
+@onready var b1 = $AnimatableBody2D2/beam
+@onready var b2 = $AnimatableBody2D/base2/beam2
+@onready var kz = $AnimatableBody2D2/beam/Killzone/CollisionShape2D
 @onready var timer = $Timer
 @onready var timer2 = $Timer2
 

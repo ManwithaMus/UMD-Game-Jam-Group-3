@@ -37,13 +37,13 @@ theme_override_constants/separation = 175
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Done"
+text = "Completed"
 horizontal_alignment = 1
 
 [node name="TimesLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Time"
+text = "Thanks for playing!"
 horizontal_alignment = 1
 script = ExtResource("1_my301")
 

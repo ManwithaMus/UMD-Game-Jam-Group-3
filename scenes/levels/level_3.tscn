@@ -454,7 +454,7 @@ modulate = Color(0, 0.9377614, 0.93776107, 1)
 position = Vector2(282, 287)
 
 [node name="Player" parent="." instance=ExtResource("4_2bnyt")]
-position = Vector2(58, -171)
+position = Vector2(58, -206)
 collision_layer = 3
 heat = 90.0
 

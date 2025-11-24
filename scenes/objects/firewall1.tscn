@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://3sepegpurnvt"]
+[gd_scene load_steps=17 format=3 uid="uid://3sepegpurnvt"]
 
 [ext_resource type="Texture2D" uid="uid://okdeq4uay23d" path="res://assets/sprites/firewall1.png" id="1_b50ip"]
 [ext_resource type="Script" uid="uid://6g48wlcovlgj" path="res://scripts/firewall_1.gd" id="1_xijbq"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/objects/killzone.tscn" id="2_bwsyg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xijbq"]
+height = 63.999996
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4iwa"]
 atlas = ExtResource("1_b50ip")
@@ -130,32 +133,46 @@ animations = [{
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_xijbq")
 
-[node name="beam" type="AnimatedSprite2D" parent="."]
+[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2"]
+position = Vector2(-4.03, 0)
+rotation = -3.1415925
+shape = SubResource("CapsuleShape2D_xijbq")
+
+[node name="beam" type="AnimatedSprite2D" parent="AnimatableBody2D2"]
 position = Vector2(62, 0)
 sprite_frames = SubResource("SpriteFrames_pdt44")
 animation = &"start"
 speed_scale = 2.0
 
-[node name="Killzone" parent="beam" instance=ExtResource("2_bwsyg")]
+[node name="Killzone" parent="AnimatableBody2D2/beam" instance=ExtResource("2_bwsyg")]
 position = Vector2(128, -2)
 rotation = -3.1415925
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="beam/Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2/beam/Killzone"]
 position = Vector2(75, -1.000006)
 shape = SubResource("RectangleShape2D_eyo4y")
 
-[node name="base2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="base2" type="AnimatedSprite2D" parent="AnimatableBody2D"]
 position = Vector2(230, 0)
-rotation = 3.1415927
+rotation = -3.1415925
 sprite_frames = SubResource("SpriteFrames_v4iwa")
 animation = &"transition"
 
-[node name="beam2" type="AnimatedSprite2D" parent="base2"]
+[node name="beam2" type="AnimatedSprite2D" parent="AnimatableBody2D/base2"]
 z_index = -1
 position = Vector2(62, 1.9999946)
 sprite_frames = SubResource("SpriteFrames_pdt44")
 animation = &"start"
 speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(234, 0)
+rotation = -3.1415925
+shape = SubResource("CapsuleShape2D_xijbq")
 
 [node name="base" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v4iwa")
@@ -168,6 +185,6 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="animation_finished" from="beam" to="." method="_on_beam_animation_finished"]
+[connection signal="animation_finished" from="AnimatableBody2D2/beam" to="." method="_on_beam_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

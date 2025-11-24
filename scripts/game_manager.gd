@@ -11,6 +11,7 @@ var levels = [level_1, level_2, level_3]
 var current_level 
 var level_time
 #@onready var score_label = $ScoreLabel
+
 func _ready() -> void:
 	level_time = 0
 	global.current_time = level_time
@@ -26,8 +27,10 @@ func _process(delta: float) -> void:
 
 func level_end(): 
 	#print(current_level, len(levels))
-	global.times[current_level] = level_time
-	print(global.times[current_level])
+	print("time: "+str(global.current_time))
+	#global.times.append(global.current_time)
+	global.add_time()
+	print(global.times)
 	if current_level+1 != len(levels):
 		print(current_level)
 		get_tree().change_scene_to_file(levels[current_level+1])
